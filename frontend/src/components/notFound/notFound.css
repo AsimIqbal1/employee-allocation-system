@@ -1,0 +1,11 @@
+.fof {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.fof .h1 {
+    font-family: Arial;
+    text-align: center;
+}
