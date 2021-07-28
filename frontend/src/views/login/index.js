@@ -14,7 +14,7 @@ const Login = (props) => {
     const loginResponse = useSelector(state => state.auth.userData)
 
     useEffect(() => {
-        console.log("LR: ", loginResponse);
+        //handle routing if login succeed
     }, [loginResponse])
 
     const handleUsernameChange = (e) => {
