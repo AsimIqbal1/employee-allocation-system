@@ -1,39 +1,40 @@
 import ACTION_CONSTANTS from '../../constants/actionConstants';
 
 export const initialState = {
-    userData: null,
+    employee: null,
+    updateEmployee: null,
     isLoading: false,
     error: null,
 };
 
-const authReducer = (state = initialState, { type, payload }) => {
+const employeeReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case ACTION_CONSTANTS.SIGNIN_USER:
+        case ACTION_CONSTANTS.GET_EMPLOYEE:
             return { ...state, isLoading: true };
 
-        case ACTION_CONSTANTS.SIGNIN_USER_SUCCESS:
+        case ACTION_CONSTANTS.GET_EMPLOYEE_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                userData: payload,
+                employee: payload,
                 error: null,
             };
 
-        case ACTION_CONSTANTS.SIGNIN_USER_FAILURE:
+        case ACTION_CONSTANTS.GET_EMPLOYEE_FAILURE:
             return { ...state, isLoading: false, error: payload };
 
-        case ACTION_CONSTANTS.SIGNOUT_USER:
+        case ACTION_CONSTANTS.UPDATE_EMPLOYEE:
             return { ...state, isLoading: true };
 
-        case ACTION_CONSTANTS.SIGNOUT_USER_SUCCESS:
+        case ACTION_CONSTANTS.UPDATE_EMPLOYEE_SUCCESS:
             return {
                 ...state,
                 isLoading: false,
-                userData: null,
+                updateEmployee: payload,
                 error: null,
             };
 
-        case ACTION_CONSTANTS.SIGNOUT_USER_FAILURE:
+        case ACTION_CONSTANTS.UPDATE_EMPLOYEE_FAILURE:
             return { ...state, isLoading: false, error: payload };
 
         default:
@@ -41,4 +42,4 @@ const authReducer = (state = initialState, { type, payload }) => {
     }
 };
 
-export default authReducer;
+export default employeeReducer;

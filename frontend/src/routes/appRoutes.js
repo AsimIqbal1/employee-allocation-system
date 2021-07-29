@@ -10,7 +10,6 @@ import routes from '../constants/routes';
 import dashboard from '../views/dashboard';
 import login from '../views/login';
 
-
 const AppRoutes = () => {
     return (
         <Router>
@@ -31,7 +30,6 @@ const AppRoutes = () => {
                 <Route
                     component={NotFound}
                 />
-
             </Switch>
         </Router>
     )

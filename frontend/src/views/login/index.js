@@ -20,12 +20,12 @@ const Login = (props) => {
     const handleUsernameChange = (e) => {
         setUsername(e.target.value);
     }
+
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     }
 
     const handleLoginSubmit = () => {
-        console.log("Username: ", username, "\nPassword: ", password);
         dispatch(signInUser(LoginModel(username, password)));
     }
 
