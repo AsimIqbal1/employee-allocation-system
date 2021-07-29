@@ -11,94 +11,82 @@
             "employeeName": "Abdullah",
             "username": "abdullah.1",
             "password": "123456",
-            "controller": "98765",
-            "manager": "43215",
             "projectId": "S12345",
             "skill": "React JS",
             "role": "Developer",
-            "grade": "Excellent",
-            "departmentId": "2",
-            "shift": "Morning",
-            "startTime": 1626894000000,
-            "endTime": 1628103600000
+            "grade": "Excellent"
         },
         {
-            "employeeNo": 123128,
+            "employeeNo": "123128",
             "employeeName": "Ahmed",
             "username": "ahmed.1",
             "password": "123456",
-            "controller": "98765",
-            "manager": "43215",
             "projectId": "S12345",
             "skill": "Node JS",
             "role": "Developer",
-            "grade": "Excellent",
-            "departmentId": "1",
-            "shift": "Morning",
-            "startTime": 1626980400000,
-            "endTime": 1628276400000
+            "grade": "Excellent"
         },
         {
             "employeeNo": "123129",
             "employeeName": "Akram",
             "username": "akram.1",
             "password": "123456",
-            "controller": "98765",
-            "manager": "43215",
             "projectId": "S12347",
             "skill": "MERN",
             "role": "Developer",
-            "grade": "Excellent",
-            "departmentId": "1",
-            "shift": "Evening",
-            "startTime": 1627153200000,
-            "endTime": 1628449200000
+            "grade": "Excellent"
         },
         {
             "employeeNo": "43215",
             "employeeName": "Asim",
             "username": "asim.1",
             "password": "123456",
-            "controller": "98765",
-            "manager": "",
             "projectId": "S12347",
             "skill": "MERN",
             "role": "Team Lead",
-            "grade": "Excellent",
-            "departmentId": "2",
-            "shift": "Evening",
-            "startTime": 1627326000000,
-            "endTime": 1628622000000
+            "grade": "Excellent"
         },
         {
             "employeeNo": "98765",
             "employeeName": "Khalid",
             "username": "khalid.1",
             "password": "1234567",
-            "controller": "",
-            "manager": "",
             "projectId": "S12347",
             "skill": "MERN",
             "role": "Controller",
-            "grade": "Excellent",
-            "departmentId": "3",
-            "shift": "Night",
-            "startTime": 1627498800000,
-            "endTime": 1628103600000
+            "grade": "Excellent"
         }
     ],
     "projects": [
         {
             "id": "S12345",
-            "name": "DP World"
+            "name": "DP World",
+            "controller": "98765",
+            "manager": "43215",
+            "department": "Software Engineer",
+            "startTime": 1626894000000,
+            "endTime": 1628103600000,
+            "shift": "Morning"
         },
         {
             "id": "S12346",
-            "name": "Pakistan Customs"
+            "name": "Pakistan Customs",
+            "controller": "98765",
+            "manager": "43215",
+            "department": "Cloud Infrastructure",
+            "startTime": 1627326000000,
+            "endTime": 1628622000000,
+            "shift": "Night"
         },
         {
             "id": "S12347",
-            "name": "UK Travel"
+            "name": "UK Travel",
+            "controller": "98765",
+            "manager": "43215",
+            "department": "Devops",
+            "startTime": 1627498800000,
+            "endTime": 1628103600000,
+            "shift": "Morning"
         }
     ],
     "departments": [
@@ -114,5 +102,8 @@
             "id": "d3",
             "name": "Devops"
         }
+    ],
+    "shifts": [
+        "morning", "night"
     ]
 }
