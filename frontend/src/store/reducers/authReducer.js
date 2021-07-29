@@ -1,4 +1,5 @@
 import ACTION_CONSTANTS from '../../constants/actionConstants';
+import constants from '../../constants/stringConstants';
 
 export const initialState = {
     userData: null,
@@ -16,7 +17,7 @@ const authReducer = (state = initialState, { type, payload }) => {
                 ...state,
                 isLoading: false,
                 userData: payload,
-                error: null,
+                error: payload?.length ? null : constants.errorMessages.UNAUTORIZED.MESSAGE,
             };
 
         case ACTION_CONSTANTS.SIGNIN_USER_FAILURE:

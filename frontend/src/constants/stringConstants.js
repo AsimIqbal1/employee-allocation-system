@@ -27,6 +27,9 @@ const constants =  {
         REQUEST_TIMEOUT: {
             MESSAGE: 'Request Timed Out',
         },
+        INVALID_INPUTS: {
+            MESSAGE: 'Inputs are not valid',
+        }
     },
 };
 
