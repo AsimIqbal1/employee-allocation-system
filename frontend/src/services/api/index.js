@@ -1,7 +1,6 @@
 import axios from 'axios';
 import apiRoutes from '../../constants/apiRoutes';
 import { isCompleteUrl } from '../../helpers/urlChecker';
-import { store } from '../../store/store';
 
 export const apiClient = () => {
     const defaultOptions = {

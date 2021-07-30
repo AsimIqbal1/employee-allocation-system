@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+
 import { getProjects } from "../../../../store/actions/projectAction";
 import { ProjectModel } from "../../../../models/projectModel";
 import { move, reorder } from "./helpers";
 import { getItemStyle, getListStyle } from "./styles";
-import './styles.css'
 import { updateEmployeeModel } from "../../../../models/updateEmployeeModel";
 import { getEmployee, updateEmployee } from "../../../../store/actions/employeeAction";
 import MaterialDatePicker from "../../../../components/materialUI/datePicker";
@@ -16,65 +15,78 @@ import MaterialSelector from "../../../../components/materialUI/selector";
 import MaterialTypography from "../../../../components/materialUI/typography/typography";
 import colors from "../../../../constants/colors";
 import MaterialButton from "../../../../components/materialUI/button";
+import './styles.css'
 
 const ProjectWiseEmployeeAllocation = () => {
     const dispatch = useDispatch();
     const [projects, setProjects] = useState();
     const [currentEmployee, setCurrentEmployee] = useState(null);
+
     //for filters
     const [shifts, setShifts] = useState([]);
     const [selectedShift, setSelectedShift] = useState('');
     const [departments, setDepartments] = useState([]);
     const [selectedDepartment, setSelectedDepartment] = useState('');
-    const [date, setDate] = useState(null);
+    const [date, setDate] = useState('');
+
+    // store state change detectors
     const projectsData = useSelector(state => state.project.projects)
     const employeeData = useSelector(state => state.employee.employee)
     const shiftsData = useSelector(state => state.shift.shifts)
     const departmentsData = useSelector(state => state.department.departments)
 
+    // call initial APIs
     useEffect(() => {
         if (!projectsData) dispatch(getProjects(ProjectModel()));
         if (!departmentsData) dispatch(getDepartments());
         if (!shiftsData) dispatch(getShifts());
     }, []);
 
+    // called when change in filter is detected
     useEffect(() => {
         dispatch(getProjects(ProjectModel(date, selectedShift, selectedDepartment)));
     }, [selectedShift, selectedDepartment, date])
 
+    // when projects from API are received
     useEffect(() => {
         if (projectsData) {
             setProjects(projectsData)
         }
     }, [projectsData]);
 
+    // when requested employee from API is received
     useEffect(() => {
         if (employeeData) {
             setCurrentEmployee(employeeData)
         }
     }, [employeeData]);
 
+    // when shifts from API are received
     useEffect(() => {
         if (shiftsData) {
             setShifts(shiftsData)
         }
     }, [shiftsData]);
 
+    // when departments from API are received
     useEffect(() => {
         if (departmentsData) {
             setDepartments(departmentsData)
         }
     }, [departmentsData]);
 
+    // called when user completed drag and drop of employee record from one table to another
     function updateEmployeeAllocation(employeeId, projectId) {
         const updateObject = updateEmployeeModel(projectId)
         dispatch(updateEmployee(employeeId, updateObject));
     }
 
+    // when user clicks a single employee record
     const handleItemClick = (employeeId) => {
         dispatch(getEmployee(employeeId))
     }
 
+    // when drag ends
     function onDragEnd(result) {
         const { source, destination } = result;
 
@@ -118,6 +130,7 @@ const ProjectWiseEmployeeAllocation = () => {
         setSelectedDepartment(e.target.value);
     }
 
+    // clears all applied filters and recalls the projects
     const onClearFilterClick = () => {
         setDate('');
         setSelectedDepartment('');
@@ -125,6 +138,7 @@ const ProjectWiseEmployeeAllocation = () => {
         dispatch(getProjects(ProjectModel()));
     }
 
+    // renders the filters
     const renderFilters = () => {
         return (
             <div>
@@ -159,6 +173,8 @@ const ProjectWiseEmployeeAllocation = () => {
             </div>
         )
     }
+
+    // employee details component
     const renderEmployeeDetails = () => {
         return (
             <div>

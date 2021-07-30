@@ -1,7 +1,7 @@
 import { request, success, failure } from './index';
 import ACTION_CONSTANTS from '../../constants/actionConstants';
 import Auth from '../../services/api/auth';
-import { removeLocal } from '../../helpers/localStorage';
+import { removeLocal, setLocal } from '../../helpers/localStorage';
 import LOCAL_STORAGE from '../../constants/localStorageConstants';
 
 export function signInUser(creds) {
@@ -9,6 +9,7 @@ export function signInUser(creds) {
         try {
             dispatch(request(ACTION_CONSTANTS.SIGNIN_USER, null));
             let res = await Auth.signInUser(creds);
+            setLocal(LOCAL_STORAGE.IS_LOGGED_IN, true);
             dispatch(success(ACTION_CONSTANTS.SIGNIN_USER_SUCCESS, res));
         } catch (error) {
             console.error('There is an error in signInUser', error);

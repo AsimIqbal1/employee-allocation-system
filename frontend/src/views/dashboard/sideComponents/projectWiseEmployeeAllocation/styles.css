@@ -5,11 +5,12 @@
 
 .employeeTableItem {
     display: flex; 
+    margin-left: 10px;
     justify-content: flex-start;
     background-color: var(--primaryColor);
     border-color: var(--black);
-    border-width:2px;
-    border-style:solid;
+    border-width:1px;
+    border-style: solid;
 }
 
 .tableHeader {
