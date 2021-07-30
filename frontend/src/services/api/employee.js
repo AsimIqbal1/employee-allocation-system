@@ -3,28 +3,24 @@ import { apiClient } from './index';
 import { handleError, handleResponse } from './responseHandlers';
 
 class Employee {
-    async getEmployee(params) {
-        const url = apiRoutes.GET_EMPLOYEE;
+    async getEmployee(employeeId) {
+        const url = `${apiRoutes.GET_EMPLOYEE}/${employeeId}`;
         try {
-            const options = {
-                ...params
-            };
-
-            var res = await apiClient().post(url, options);
+            var res = await apiClient().get(url);
             return handleResponse(res);
         } catch (err) {
             throw handleError(err);
         }
     }
 
-    async updateEmployee(updateQuery) {
-        const url = apiRoutes.UPDATE_EMPLOYEE;
+    async updateEmployee(employeeId, updateQuery) {
+        const url = `${apiRoutes.UPDATE_EMPLOYEE}/${employeeId}`;
         try {
             const options = {
                 ...updateQuery
             };
 
-            var res = await apiClient().post(url, options);
+            var res = await apiClient().patch(url, options);
             return handleResponse(res);
         } catch (err) {
             throw handleError(err);

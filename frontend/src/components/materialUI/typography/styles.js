@@ -3,7 +3,8 @@ import colors from '../../../constants/colors';
 
 const useStyles = makeStyles({
     text: {
-        color: colors.primary
+        color: colors.primary,
+        paddingLeft: 10
     },
 });
 

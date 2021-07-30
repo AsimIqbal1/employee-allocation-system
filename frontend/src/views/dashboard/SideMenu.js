@@ -21,7 +21,7 @@ const SideMenu = ({ onMenuItemClick }) => {
         >
             <SidebarHeader>
                 <div className='header'>
-                    Employee Allocation
+                    DP WORLD
                 </div>
             </SidebarHeader>
 

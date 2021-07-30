@@ -21,7 +21,7 @@ export function signOutUser() {
     return async function (dispatch) {
         try {
             dispatch(request(ACTION_CONSTANTS.SIGNOUT_USER, null));
-            removeLocal(LOCAL_STORAGE.TOKEN);
+            removeLocal(LOCAL_STORAGE.IS_LOGGED_IN);
             dispatch(success(ACTION_CONSTANTS.SIGNOUT_USER_SUCCESS));
         } catch (error) {
             console.error('There is an error in signOut USer', error);

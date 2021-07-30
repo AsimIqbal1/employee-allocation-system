@@ -1,0 +1,25 @@
+.listItem {
+    display: flex;
+    justify-content: space-around
+}
+
+.employeeTableItem {
+    display: flex; 
+    justify-content: flex-start;
+    background-color: var(--primaryColor);
+    border-color: var(--black);
+    border-width:2px;
+    border-style:solid;
+}
+
+.tableHeader {
+    color: white;
+}
+
+.rowDisplay {
+    display: flex
+}
+
+.clearButton {
+    padding: 10px
+}

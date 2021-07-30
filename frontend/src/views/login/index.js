@@ -14,6 +14,7 @@ import { navigateTo } from '../../helpers/navigator';
 import constants from '../../constants/stringConstants';
 import { validateInput } from './validator';
 import ErrorMessage from '../../components/errorMessage';
+import colors from '../../constants/colors';
 
 const Login = (props) => {
     const dispatch = useDispatch();
@@ -27,7 +28,6 @@ const Login = (props) => {
     useEffect(() => {
         // if creds succeed, then redirect user to dashboard
         if (loginResponse?.length) navigateTo(props.history, routes.DASHBOARD)
-        console.log('LR: ',loginResponse)
     }, [loginResponse])
 
     useEffect(() => {
@@ -54,11 +54,11 @@ const Login = (props) => {
     return (
         <div className='root'>
             <MaterialPaper>
-                <MaterialTypography text='LOGIN' varient='h2' />
+                <MaterialTypography text='LOGIN' varient='h2' color={colors.primary}/>
                 <MaterialTextField type="text" onChangeEvent={handleUsernameChange} label='Username'></MaterialTextField>
                 <MaterialTextField type="password" onChangeEvent={handlePasswordChange} label='Password'></MaterialTextField>
                 {error && <ErrorMessage message={error}/>}
-                {isLoginResponseLoading ? <CircularProgress color="secondary" /> : <MaterialButton onClickEvent={handleLoginSubmit} />}
+                {isLoginResponseLoading ? <CircularProgress color="secondary" /> : <MaterialButton onClickEvent={handleLoginSubmit} text='LOGIN'/>}
             </MaterialPaper>
 
         </div>

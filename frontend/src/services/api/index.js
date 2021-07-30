@@ -7,8 +7,7 @@ export const apiClient = () => {
     const defaultOptions = {
         timeout: 90000,
         headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + store.getState().auth.userToken,
+            'Content-Type': 'application/json'
         },
     };
 
@@ -33,6 +32,13 @@ export const apiClient = () => {
                 url = `${apiRoutes.BASE_URL}${url}`;
             }
             return axios.put(`${url}`, data, { ...defaultOptions, ...options });
+        },
+
+        patch: (url, data, options = {}) => {
+            if (!isCompleteUrl(url)) {
+                url = `${apiRoutes.BASE_URL}${url}`;
+            }
+            return axios.patch(`${url}`, data, { ...defaultOptions, ...options });
         },
 
         delete: (url, options = {}) => {

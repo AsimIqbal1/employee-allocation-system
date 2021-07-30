@@ -2,11 +2,11 @@ import { request, success, failure } from './index';
 import ACTION_CONSTANTS from '../../constants/actionConstants';
 import Employee from '../../services/api/employee';
 
-export function getEmployee(params) {
+export function getEmployee(employeeId) {
     return async function (dispatch) {
         try {
             dispatch(request(ACTION_CONSTANTS.GET_EMPLOYEE, null));
-            let res = await Employee.getEmployee(params);
+            let res = await Employee.getEmployee(employeeId);
             dispatch(success(ACTION_CONSTANTS.GET_EMPLOYEE_SUCCESS, res));
         } catch (error) {
             console.error('There is an error in get employees', error);
@@ -15,11 +15,11 @@ export function getEmployee(params) {
     };
 }
 
-export function updateEmployee(updateQuery) {
+export function updateEmployee(employeeId, updateQuery) {
     return async function (dispatch) {
         try {
             dispatch(request(ACTION_CONSTANTS.UPDATE_EMPLOYEE, null));
-            let res = await Employee.updateEmployee(updateQuery);
+            let res = await Employee.updateEmployee(employeeId, updateQuery);
             dispatch(success(ACTION_CONSTANTS.UPDATE_EMPLOYEE_SUCCESS, res));
         } catch (error) {
             console.error('There is an error in update employees', error);
