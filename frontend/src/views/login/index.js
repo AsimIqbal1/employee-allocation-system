@@ -5,7 +5,6 @@ import { CircularProgress } from '@material-ui/core';
 import routes from '../../constants/routes';
 import { LoginModel } from '../../models/loginModel';
 import { signInUser } from '../../store/actions/authAction';
-import './login.css'
 import MaterialButton from '../../components/materialUI/button';
 import MaterialTextField from '../../components/materialUI/textField/textField';
 import MaterialPaper from '../../components/materialUI/paper/paper';
@@ -15,6 +14,8 @@ import constants from '../../constants/stringConstants';
 import { validateInput } from './validator';
 import ErrorMessage from '../../components/errorMessage';
 import colors from '../../constants/colors';
+
+import './login.css'
 
 const Login = (props) => {
     const dispatch = useDispatch();
@@ -31,6 +32,7 @@ const Login = (props) => {
     }, [loginResponse])
 
     useEffect(() => {
+        //show error if any, during login
         if (loginError) setError(loginError)
     }, [loginError])
 
@@ -43,10 +45,14 @@ const Login = (props) => {
     }
 
     const handleLoginSubmit = () => {
+        //create login model
         const loginCreds = LoginModel(username, password);
+        //validate inputs
         if(validateInput(loginCreds)){
+            //dispatch action if no validation issue
             dispatch(signInUser(loginCreds));
         } else {
+            //show error on ivalid input
             setError(constants.errorMessages.INVALID_INPUTS.MESSAGE)
         }
     }

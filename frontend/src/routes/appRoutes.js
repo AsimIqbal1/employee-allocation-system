@@ -10,6 +10,7 @@ import routes from '../constants/routes';
 import dashboard from '../views/dashboard';
 import login from '../views/login';
 
+// main frontend router handling here
 const AppRoutes = () => {
     return (
         <Router>

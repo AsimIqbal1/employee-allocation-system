@@ -1,6 +1,8 @@
 import React from 'react'
 import routes from '../../constants/routes'
 import "./notFound.css";
+
+// used when any unknown route is requested
 function NotFound() {
     return (
         <div className="fof">

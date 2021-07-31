@@ -1,3 +1,4 @@
+// dashboard side panel item names
 const dashboardItems = {
     PROJECT_ALLOCATION: 'PROJECT_ALLOCATION',
     EMPLOYEES: 'EMPLOYEES',

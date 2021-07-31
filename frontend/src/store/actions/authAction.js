@@ -9,6 +9,7 @@ export function signInUser(creds) {
         try {
             dispatch(request(ACTION_CONSTANTS.SIGNIN_USER, null));
             let res = await Auth.signInUser(creds);
+            // login flow is mimiced, as no actual token was available
             setLocal(LOCAL_STORAGE.IS_LOGGED_IN, true);
             dispatch(success(ACTION_CONSTANTS.SIGNIN_USER_SUCCESS, res));
         } catch (error) {
@@ -22,6 +23,7 @@ export function signOutUser() {
     return async function (dispatch) {
         try {
             dispatch(request(ACTION_CONSTANTS.SIGNOUT_USER, null));
+            // login flow is mimiced, as no actual token was available
             removeLocal(LOCAL_STORAGE.IS_LOGGED_IN);
             dispatch(success(ACTION_CONSTANTS.SIGNOUT_USER_SUCCESS));
         } catch (error) {

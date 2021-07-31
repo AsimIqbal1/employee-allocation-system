@@ -2,6 +2,7 @@ import axios from 'axios';
 import apiRoutes from '../../constants/apiRoutes';
 import { isCompleteUrl } from '../../helpers/urlChecker';
 
+// axios and its verbs
 export const apiClient = () => {
     const defaultOptions = {
         timeout: 90000,

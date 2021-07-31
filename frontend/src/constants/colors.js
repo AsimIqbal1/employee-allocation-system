@@ -1,3 +1,4 @@
+// ui colors for frontend
 const colors = {
     primary: '#FE6B8B',
     secondary: '#1e81b0',

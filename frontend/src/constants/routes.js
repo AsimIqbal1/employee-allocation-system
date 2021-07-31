@@ -1,3 +1,4 @@
+// all frontend routes
 const routes = {
     EMPTY: "",
     HOME: "/",

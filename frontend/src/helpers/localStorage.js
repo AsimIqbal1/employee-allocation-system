@@ -1,3 +1,5 @@
+//local storage methods helper
+
 export const setLocal = (key, value) => {
     localStorage.setItem(key, value)
 }

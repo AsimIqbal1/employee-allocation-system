@@ -1,7 +1,5 @@
 /**
  * Return action creator Object Type
- * @param {String} type
- * @param {Object} payload
  */
 
 export function request(type, payload) {
