@@ -21,7 +21,7 @@ function Dashboard(props) {
     const userData = useSelector(state => state.auth.userData)
 
     useEffect(() => {
-        if(!userData && !getLocal(LOCAL_STORAGE.IS_LOGGED_IN)){
+        if(!getLocal(LOCAL_STORAGE.IS_LOGGED_IN)){
             navigateTo(props.history, routes.LOGIN);
         }
     }, [userData])
